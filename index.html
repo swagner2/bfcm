@@ -1061,7 +1061,7 @@
         // Klaviyo integration
         async function addToKlaviyo(email) {
             // Replace these with your actual Klaviyo credentials
-            const KLAVIYO_API_KEY = 'pk_a3f0517164372c492a3745f1186aa74575'; // Replace with your private API key
+            const KLAVIYO_API_KEY = 'pk_0672a124e500630ac586685cf63b5f9b23'; // Replace with your private API key
             const LIST_ID = 'T4m484'; // Replace with your list ID
             
             try {
@@ -1173,15 +1173,15 @@
                 // Small delay to show success
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 
-                // Redirect to Stripe checkout with prefilled email
-                const stripeUrl = `https://buy.stripe.com/00w4gAf5IckD2LofxQ3Je15?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(email)}`;
+                // Redirect to ThriveCart checkout with prefilled email
+                const thriveCartUrl = `https://sjw.thrivecart.com/bfcm-ignite/?email=${encodeURIComponent(email)}`;
                 
-                // For demo purposes - replace with actual Stripe URL
-                console.log('Would redirect to:', stripeUrl);
-                alert(`Email added to Klaviyo! Redirecting to secure checkout...\n\nReplace with your Stripe URL:\n${stripeUrl}`);
+                // For demo purposes - replace with actual redirect
+                console.log('Redirecting to ThriveCart:', thriveCartUrl);
+                alert(`Email added to Klaviyo! Redirecting to secure checkout...\n\nThriveCart URL:\n${thriveCartUrl}`);
                 
                 // In production, use this:
-                // window.location.href = stripeUrl;
+                window.location.href = thriveCartUrl;
                 
                 closeModal();
                 
