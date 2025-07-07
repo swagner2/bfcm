@@ -1162,10 +1162,10 @@
             try {
                 // Add to Klaviyo list (choose one method)
                 // Method 1: Server-side API (more reliable but requires backend)
-                await addToKlaviyo(email);
+                // await addToKlaviyo(email);
                 
                 // Method 2: Client-side API (easier setup, works from frontend)
-                //await addToKlaviyoClientSide(email);
+                await addToKlaviyoClientSide(email);
                 
                 // Update button text
                 submitBtn.innerHTML = '<span class="loading"></span>Redirecting to checkout...';
