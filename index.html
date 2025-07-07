@@ -1061,8 +1061,8 @@
         // Klaviyo integration
         async function addToKlaviyo(email) {
             // Replace these with your actual Klaviyo credentials
-            const KLAVIYO_API_KEY = 'YOUR_KLAVIYO_PRIVATE_API_KEY'; // Replace with your private API key
-            const LIST_ID = 'YOUR_KLAVIYO_LIST_ID'; // Replace with your list ID
+            const KLAVIYO_API_KEY = 'pk_4e73bf42eca6f8f5d728feb2f13eaf6d75'; // Replace with your private API key
+            const LIST_ID = 'T4m484'; // Replace with your list ID
             
             try {
                 const response = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
@@ -1176,11 +1176,7 @@
                 // Redirect to ThriveCart checkout with prefilled email
                 const thriveCartUrl = `https://sjw.thrivecart.com/bfcm-ignite/?email=${encodeURIComponent(email)}`;
                 
-                // For demo purposes - replace with actual redirect
-                console.log('Redirecting to ThriveCart:', thriveCartUrl);
-                alert(`Email added to Klaviyo! Redirecting to secure checkout...\n\nThriveCart URL:\n${thriveCartUrl}`);
-                
-                // In production, use this:
+                // Redirect directly to ThriveCart
                 window.location.href = thriveCartUrl;
                 
                 closeModal();
