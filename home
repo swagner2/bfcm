@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFCM Email Strategy - Drive Over $10M in Sales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .limited-time {
+            background: rgba(249, 115, 22, 0.2);
+            color: #fed7aa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 30px;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 .highlight {
+            color: #f97316;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: #f97316;
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .guarantee {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f97316;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Results Section */
+        .results {
+            background: #f8fafc;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .results h2 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .results p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 60px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-amount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #059669;
+            margin-bottom: 10px;
+        }
+
+        .result-company {
+            font-size: 1rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .result-description {
+            font-size: 0.95rem;
+            color: #374151;
+            font-style: italic;
+        }
+
+        .bottom-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .bottom-stat {
+            text-align: center;
+        }
+
+        .bottom-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .bottom-stat-label {
+            font-size: 1rem;
+            color: #64748b;
+        }
+
+        /* Guide Section */
+        .guide {
+            background: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .guide h2 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .guide p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #f97316;
+            border-radius: 12px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .value-prop {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 50px 0;
+            border-left: 4px solid #f97316;
+        }
+
+        .value-prop p {
+            font-size: 1.1rem;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .value-prop .price {
+            font-weight: 700;
+            color: #f97316;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .faq h2 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .faq-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 30px 25px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .cta-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cta-feature-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .final-cta {
+            background: #f97316;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .final-cta:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .security-badges {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .limited-offer {
+            background: rgba(249, 115, 22, 0.2);
+            color: #fed7aa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .results h2, .guide h2, .faq h2, .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="limited-time">🔥 Limited Time: BFCM 2025 Strategy Inside</div>
+                <h1>The BFCM Email Strategy That<br>Drove Over <span class="highlight">$10M in Sales</span></h1>
+                <p>Exact send dates. Proven flows. Used by 150+ eCom brands.</p>
+                <a href="#" class="cta-button">Download for $9.70</a>
+                <div class="guarantee">💾 Instant download • 🔒 30-day money-back guarantee</div>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <span class="stat-number">$507,594</span>
+                        <div class="stat-label">BFCM Email Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">150+</span>
+                        <div class="stat-label">Brands Using This</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">47 Pages</span>
+                        <div class="stat-label">Actionable Content</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <h2>Real Results from Real Brands</h2>
+            <p>Don't just take our word for it. See what brands achieved using this exact strategy.</p>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-amount">$127K</div>
+                    <div class="result-company">Luna Nights (Skincare)</div>
+                    <div class="result-description">"Best BFCM we've ever had. The calendar was spot on."</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-amount">$89K</div>
+                    <div class="result-company">Oak & Iron (Home Goods)</div>
+                    <div class="result-description">"Finally, a strategy that actually works. Worth every penny."</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-amount">$203K</div>
+                    <div class="result-company">Dale Jensen (Supplements)</div>
+                    <div class="result-description">"The segmentation tips alone hit 6-figures in our email channel."</div>
+                </div>
+            </div>
+            
+            <div class="bottom-stats">
+                <div class="bottom-stat">
+                    <div class="bottom-stat-number">$507K+</div>
+                    <div class="bottom-stat-label">Total Revenue Generated</div>
+                </div>
+                <div class="bottom-stat">
+                    <div class="bottom-stat-number">150+</div>
+                    <div class="bottom-stat-label">Brands Implemented</div>
+                </div>
+                <div class="bottom-stat">
+                    <div class="bottom-stat-number">93%</div>
+                    <div class="bottom-stat-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Section -->
+    <section class="guide">
+        <div class="container">
+            <h2>What's Inside the Guide</h2>
+            <p>Everything you need to execute a winning BFCM email strategy, from start to finish.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">5-Phase BFCM Strategy</div>
+                    <div class="feature-description">Complete roadmap from pre-launch to post-BFCM follow-up</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <div class="feature-title">Full Email Calendar</div>
+                    <div class="feature-description">Exact send dates and times for maximum revenue</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <div class="feature-title">List-Cleaning Playbook</div>
+                    <div class="feature-description">Increase deliverability and engagement rates</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <div class="feature-title">Flow Templates</div>
+                    <div class="feature-description">Copy-paste email sequences that convert</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Segmentation Examples</div>
+                    <div class="feature-description">Target the right message to the right people</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <div class="feature-title">Lead Gen Ideas</div>
+                    <div class="feature-description">Grow your list before the big sales events</div>
+                </div>
+            </div>
+            
+            <div class="value-prop">
+                <p>Total Value: <span class="price">$500+</span> • Your Price: <span class="price">Just $9.70</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="faq-subtitle">Everything you need to know before getting started.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is this just theory or actual strategies?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    These are battle-tested strategies used by real brands to generate over $10M in BFCM revenue. Every tactic includes real examples and case studies from successful campaigns.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do I need Klaviyo to implement this?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    While the examples use Klaviyo, the strategies work with any email platform. We include platform-agnostic guidance that applies to Mailchimp, Constant Contact, and others.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    When should I start implementing this strategy?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    The earlier the better! Many successful brands start their BFCM prep 90 days in advance. The guide includes timelines for both early starters and last-minute implementers.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What if I'm new to email marketing?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Perfect! The guide is designed for all skill levels. We include beginner-friendly explanations alongside advanced tactics, so you can grow into the strategy.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is there a money-back guarantee?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely. We offer a 30-day money-back guarantee. If you're not satisfied with the content, we'll refund your purchase, no questions asked.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How quickly will I see results?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    Results vary by brand and implementation speed. Most brands see immediate improvements in engagement, with revenue impact visible during the first promotional period.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Don't Wait Until November — Start Now</h2>
+            <p>BFCM preparation starts months ahead. The brands that win are the ones that start early.</p>
+            
+            <div class="cta-features">
+                <div class="cta-feature">
+                    <div class="cta-feature-icon">⚡</div>
+                    <div class="cta-feature-title">Instant Access</div>
+                    <div class="cta-feature-description">Download immediately after purchase</div>
+                </div>
+                <div class="cta-feature">
+                    <div class="cta-feature-icon">🚀</div>
+                    <div class="cta-feature-title">Start Today</div>
+                    <div class="cta-feature-description">Begin implementing in the next hour</div>
+                </div>
+                <div class="cta-feature">
+                    <div class="cta-feature-icon">💰</div>
+                    <div class="cta-feature-title">Risk-Free</div>
+                    <div class="cta-feature-description">30-day money-back guarantee</div>
+                </div>
+            </div>
+            
+            <a href="#" class="final-cta">Get the Guide for $9.70</a>
+            
+            <div class="security-badges">
+                🔒 Secure Checkout • 💳 All payment methods accepted
+            </div>
+            
+            <div class="limited-offer">
+                ⚡ Limited Time Offer: Regular price is $97. Special launch price of $9.70 expires soon.
+            </div>
+        </div>
+    </section>
+</body>
+</html>
