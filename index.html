@@ -1061,8 +1061,8 @@
         // Klaviyo integration
         async function addToKlaviyo(email) {
             // Replace these with your actual Klaviyo credentials
-            const KLAVIYO_API_KEY = 'pk_0672a124e500630ac586685cf63b5f9b23'; // Replace with your private API key
-            const LIST_ID = 'T4m484'; // Replace with your list ID
+            const KLAVIYO_API_KEY = 'YOUR_KLAVIYO_PRIVATE_API_KEY'; // Replace with your private API key
+            const LIST_ID = 'YOUR_KLAVIYO_LIST_ID'; // Replace with your list ID
             
             try {
                 const response = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
@@ -1119,8 +1119,8 @@
         // Alternative: Client-side Klaviyo (more common for landing pages)
         async function addToKlaviyoClientSide(email) {
             // Replace with your Klaviyo Site ID (Public API Key)
-            const KLAVIYO_SITE_ID = 'YOUR_KLAVIYO_SITE_ID'; // This is your public API key
-            const LIST_ID = 'YOUR_KLAVIYO_LIST_ID';
+            const KLAVIYO_SITE_ID = 'Mzfpkb'; // This is your public API key
+            const LIST_ID = 'T4m484';
             
             try {
                 // Klaviyo client-side API endpoint
