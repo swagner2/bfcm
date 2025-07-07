@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFCM Email Strategy - Drive Over $10M in Sales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,6 +18,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
+            overflow-x: hidden;
         }
 
         .container {
@@ -326,12 +330,35 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f8fafc;
+        }
+
+        .faq-question .arrow {
+            font-size: 0.8rem;
+            color: #64748b;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .arrow {
+            transform: rotate(180deg);
         }
 
         .faq-answer {
             padding: 0 30px 25px;
             color: #64748b;
             line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 25px;
         }
 
         /* CTA Section */
@@ -421,6 +448,226 @@
             border: 1px solid rgba(249, 115, 22, 0.3);
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px) scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .modal-subtitle {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #64748b;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #1e293b;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .benefits-list {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .benefits-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #374151;
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefit-icon {
+            color: #059669;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .modal-cta {
+            background: #f97316;
+            color: white;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+            width: 100%;
+        }
+
+        .modal-cta:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .modal-cta:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .trust-signals {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .trust-signal {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .modal-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -457,7 +704,7 @@
                 <div class="limited-time">🔥 Limited Time: BFCM 2025 Strategy Inside</div>
                 <h1>The BFCM Email Strategy That<br>Drove Over <span class="highlight">$10M in Sales</span></h1>
                 <p>Exact send dates. Proven flows. Used by 150+ eCom brands.</p>
-                <a href="#" class="cta-button">Download for $9.70</a>
+                <a href="#" class="cta-button" onclick="openModal(event)">Download for $9.70</a>
                 <div class="guarantee">💾 Instant download • 🔒 30-day money-back guarantee</div>
                 
                 <div class="stats">
@@ -571,9 +818,9 @@
             <p class="faq-subtitle">Everything you need to know before getting started.</p>
             
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="toggleFaq(this)">
                     Is this just theory or actual strategies?
-                    <span>▼</span>
+                    <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
                     These are battle-tested strategies used by real brands to generate over $10M in BFCM revenue. Every tactic includes real examples and case studies from successful campaigns.
@@ -581,9 +828,9 @@
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="toggleFaq(this)">
                     Do I need Klaviyo to implement this?
-                    <span>▼</span>
+                    <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
                     While the examples use Klaviyo, the strategies work with any email platform. We include platform-agnostic guidance that applies to Mailchimp, Constant Contact, and others.
@@ -591,9 +838,9 @@
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="toggleFaq(this)">
                     When should I start implementing this strategy?
-                    <span>▼</span>
+                    <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
                     The earlier the better! Many successful brands start their BFCM prep 90 days in advance. The guide includes timelines for both early starters and last-minute implementers.
@@ -601,9 +848,9 @@
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="toggleFaq(this)">
                     What if I'm new to email marketing?
-                    <span>▼</span>
+                    <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
                     Perfect! The guide is designed for all skill levels. We include beginner-friendly explanations alongside advanced tactics, so you can grow into the strategy.
@@ -611,9 +858,9 @@
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="toggleFaq(this)">
                     Is there a money-back guarantee?
-                    <span>▼</span>
+                    <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
                     Absolutely. We offer a 30-day money-back guarantee. If you're not satisfied with the content, we'll refund your purchase, no questions asked.
@@ -621,9 +868,9 @@
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="toggleFaq(this)">
                     How quickly will I see results?
-                    <span>▼</span>
+                    <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
                     Results vary by brand and implementation speed. Most brands see immediate improvements in engagement, with revenue impact visible during the first promotional period.
@@ -656,7 +903,7 @@
                 </div>
             </div>
             
-            <a href="#" class="final-cta">Get the Guide for $9.70</a>
+            <a href="#" class="final-cta" onclick="openModal(event)">Get the Guide for $9.70</a>
             
             <div class="security-badges">
                 🔒 Secure Checkout • 💳 All payment methods accepted
@@ -667,5 +914,292 @@
             </div>
         </div>
     </section>
+
+    <!-- Email Capture Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">Almost there! 🚀</h2>
+                <p class="modal-subtitle">Enter your email to get instant access to the BFCM strategy guide</p>
+            </div>
+            
+            <form class="email-form" id="emailForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        class="form-input" 
+                        placeholder="Enter your first name" 
+                        required
+                    >
+                    <div class="error-message" id="firstNameError">Please enter your first name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="Enter your email address" 
+                        required
+                    >
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <div class="benefits-list">
+                    <div class="benefits-title">What you'll get instantly:</div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        47-page BFCM email strategy guide ($500 value)
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        Complete email calendar with send dates
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        Copy-paste email templates that convert
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✓</span>
+                        Segmentation strategies from $10M+ campaigns
+                    </div>
+                </div>
+                
+                <button type="submit" class="modal-cta" id="submitBtn">
+                    Complete Purchase - $9.70
+                </button>
+                
+                <div class="trust-signals">
+                    <div class="trust-signal">
+                        <span>🔒</span>
+                        <span>Secure Checkout</span>
+                    </div>
+                    <div class="trust-signal">
+                        <span>💳</span>
+                        <span>Instant Access</span>
+                    </div>
+                    <div class="trust-signal">
+                        <span>↩️</span>
+                        <span>30-Day Guarantee</span>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="modal-footer">
+                <p>We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal(event) {
+            event.preventDefault();
+            document.getElementById('emailModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus on first input
+            setTimeout(() => {
+                document.getElementById('firstName').focus();
+            }, 300);
+        }
+
+        function closeModal() {
+            document.getElementById('emailModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+            
+            // Reset form
+            document.getElementById('emailForm').reset();
+            clearErrors();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('emailModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            clearErrors();
+            
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            if (!firstName) {
+                showError('firstNameError', 'Please enter your first name');
+                isValid = false;
+            }
+            
+            if (!email) {
+                showError('emailError', 'Please enter your email address');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showError('emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        function clearErrors() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.style.display = 'none';
+            });
+        }
+
+        // Form submission
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loading"></span>Processing...';
+            
+            try {
+                // Here you would typically send the data to your backend
+                // For now, we'll simulate the process and redirect to Stripe
+                
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Store user data (you might want to send this to your backend first)
+                const userData = {
+                    firstName: firstName,
+                    email: email,
+                    timestamp: new Date().toISOString(),
+                    product: 'BFCM Email Strategy Guide',
+                    price: '$9.70'
+                };
+                
+                // Store in localStorage (you'd typically send to your backend)
+                localStorage.setItem('purchaseData', JSON.stringify(userData));
+                
+                // Redirect to Stripe checkout
+                // Replace with your actual Stripe checkout URL
+                const stripeUrl = `https://buy.stripe.com/your-product-link?prefilled_email=${encodeURIComponent(email)}&client_reference_id=${encodeURIComponent(email)}`;
+                
+                // For demo purposes, we'll show an alert
+                alert(`Thank you ${firstName}! Redirecting to secure checkout...\n\nIn production, this would redirect to:\n${stripeUrl}`);
+                
+                // In production, uncomment this line:
+                // window.location.href = stripeUrl;
+                
+                closeModal();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Complete Purchase - $9.70';
+                
+                // Show error message
+                showError('emailError', 'Something went wrong. Please try again.');
+            }
+        }
+
+        // FAQ Toggle Functionality
+        function toggleFaq(element) {
+            const faqItem = element.parentNode;
+            const allFaqItems = document.querySelectorAll('.faq-item');
+            
+            // Close all other FAQ items
+            allFaqItems.forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ item
+            faqItem.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('onclick')) return; // Skip if has onclick handler
+                    
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Add simple animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.result-card, .feature-card, .faq-item');
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
