@@ -1174,7 +1174,7 @@
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 
                 // Redirect to ThriveCart checkout with prefilled email
-                const thriveCartUrl = `https://sjw.thrivecart.com/bfcm-ignite/?email=${encodeURIComponent(email)}`;
+                const thriveCartUrl = `https://sjw.thrivecart.com/bfcm-ignite/?passthrough[customer_email]=user@example.com`;
                 
                 // Redirect directly to ThriveCart
                 window.location.href = thriveCartUrl;
